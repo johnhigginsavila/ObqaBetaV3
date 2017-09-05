@@ -15,49 +15,50 @@ const REGISTRATION_CODE = {
     FACULTY_MEM: 'rTgb8VcsEw',
     FACULTY_ME: 'zXclOuh7hU'
 }
+
 module.exports = {
     getCode:(restriction, program) => {
         switch(restriction){
             case 4:
             switch(program){
-                case 1: return REGISTRATION_CODE[COORDINATOR_CHE];
-                case 2: return REGISTRATION_CODE[COORDINATOR_CIV];
-                case 3: return REGISTRATION_CODE[COORDINATOR_CPE];
-                case 4: return REGISTRATION_CODE[COORDINATOR_ECE];
-                case 4: return REGISTRATION_CODE[COORDINATOR_IE];
-                case 6: return REGISTRATION_CODE[COORDINATOR_MEM];
-                case 7: return REGISTRATION_CODE[COORDINATOR_ME];
+                case 1: return REGISTRATION_CODE['COORDINATOR_CHE'];
+                case 2: return REGISTRATION_CODE['COORDINATOR_CIV'];
+                case 3: return REGISTRATION_CODE['COORDINATOR_CPE'];
+                case 4: return REGISTRATION_CODE['COORDINATOR_ECE'];
+                case 4: return REGISTRATION_CODE['COORDINATOR_IE'];
+                case 6: return REGISTRATION_CODE['COORDINATOR_MEM'];
+                case 7: return REGISTRATION_CODE['COORDINATOR_ME'];
                 default: return null;
             }
             default:
             switch(program){
-                case 1: return REGISTRATION_CODE[FACULTY_CHE];
-                case 2: return REGISTRATION_CODE[FACULTY_CIV];
-                case 3: return REGISTRATION_CODE[FACULTY_CPE];
-                case 4: return REGISTRATION_CODE[FACULTY_ECE];
-                case 4: return REGISTRATION_CODE[FACULTY_IE];
-                case 6: return REGISTRATION_CODE[FACULTY_MEM];
-                case 7: return REGISTRATION_CODE[FACULTY_ME];
+                case 1: return REGISTRATION_CODE['FACULTY_CHE'];
+                case 2: return REGISTRATION_CODE['FACULTY_CIV'];
+                case 3: return REGISTRATION_CODE['FACULTY_CPE'];
+                case 4: return REGISTRATION_CODE['FACULTY_ECE'];
+                case 4: return REGISTRATION_CODE['FACULTY_IE'];
+                case 6: return REGISTRATION_CODE['FACULTY_MEM'];
+                case 7: return REGISTRATION_CODE['FACULTY_ME'];
                 default: return null;
             }
         }
     },
     convertCode:(code) => {
         switch(code){
-            case REGISTRATION_CODE[COORDINATOR_CHE]: return {restriction: 4, program:1 };
-            case REGISTRATION_CODE[COORDINATOR_CIV]: return {restriction: 4, program:2 };
-            case REGISTRATION_CODE[COORDINATOR_CPE]: return {restriction: 4, program:3 };
-            case REGISTRATION_CODE[COORDINATOR_ECE]: return {restriction: 4, program:4 };
-            case REGISTRATION_CODE[COORDINATOR_IE]: return {restriction: 4, program:5 };
-            case REGISTRATION_CODE[COORDINATOR_MEM]: return {restriction: 4, program:6 };
-            case REGISTRATION_CODE[COORDINATOR_ME]: return {restriction: 4, program:7 };
-            case REGISTRATION_CODE[FACULTY_CHE]: return {restriction: 5, program:1 };
-            case REGISTRATION_CODE[FACULTY_CIV]: return {restriction: 5, program:2 };
-            case REGISTRATION_CODE[FACULTY_CPE]: return {restriction: 5, program:3 };
-            case REGISTRATION_CODE[FACULTY_ECE]: return {restriction: 5, program:4 };
-            case REGISTRATION_CODE[FACULTY_IE]: return {restriction: 5, program:5 };
-            case REGISTRATION_CODE[FACULTY_MEM]: return {restriction: 5, program:6 };
-            case REGISTRATION_CODE[FACULTY_ME]: return {restriction: 5, program:7 };
+            case REGISTRATION_CODE['COORDINATOR_CHE']: return {restriction: 4, program:1 };
+            case REGISTRATION_CODE['COORDINATOR_CIV']: return {restriction: 4, program:2 };
+            case REGISTRATION_CODE['COORDINATOR_CPE']: return {restriction: 4, program:3 };
+            case REGISTRATION_CODE['COORDINATOR_ECE']: return {restriction: 4, program:4 };
+            case REGISTRATION_CODE['COORDINATOR_IE']: return {restriction: 4, program:5 };
+            case REGISTRATION_CODE['COORDINATOR_MEM']: return {restriction: 4, program:6 };
+            case REGISTRATION_CODE['COORDINATOR_ME']: return {restriction: 4, program:7 };
+            case REGISTRATION_CODE['FACULTY_CHE']: return {restriction: 5, program:1 };
+            case REGISTRATION_CODE['FACULTY_CIV']: return {restriction: 5, program:2 };
+            case REGISTRATION_CODE['FACULTY_CPE']: return {restriction: 5, program:3 };
+            case REGISTRATION_CODE['FACULTY_ECE']: return {restriction: 5, program:4 };
+            case REGISTRATION_CODE['FACULTY_IE']: return {restriction: 5, program:5 };
+            case REGISTRATION_CODE['FACULTY_MEM']: return {restriction: 5, program:6 };
+            case REGISTRATION_CODE['FACULTY_ME']: return {restriction: 5, program:7 };
             default: return null;
         }
     }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { SessionService } from './services/session.service';
 
@@ -16,10 +16,14 @@ import { ISession } from './interfaces/session/session.interface';
 })
 export class AppComponent {
   title = 'app';
-  session: ISession;
+  newSession: ISession;
+
+  @select(s => s.global.session) session;
+  @select(s => s.global.page) page;
+
   constructor(private sessionService: SessionService, private ngRedux: NgRedux<IAppState>){
-    this.session = this.sessionService.SessionFetch();
-    this.ngRedux.dispatch({type: CHECK_SESSION, session: this.session});
+    this.newSession = this.sessionService.SessionFetch();
+    this.ngRedux.dispatch({type: CHECK_SESSION, session: this.newSession});
   }
 
   onLogout(): void {

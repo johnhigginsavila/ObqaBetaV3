@@ -66,12 +66,20 @@ var AppComponent = (function () {
         this.sessionService = sessionService;
         this.ngRedux = ngRedux;
         this.title = 'app';
-        this.session = this.sessionService.SessionFetch();
-        this.ngRedux.dispatch({ type: __WEBPACK_IMPORTED_MODULE_3__global_store_actions__["a" /* CHECK_SESSION */], session: this.session });
+        this.newSession = this.sessionService.SessionFetch();
+        this.ngRedux.dispatch({ type: __WEBPACK_IMPORTED_MODULE_3__global_store_actions__["a" /* CHECK_SESSION */], session: this.newSession });
     }
     AppComponent.prototype.onLogout = function () {
         this.ngRedux.dispatch({ type: __WEBPACK_IMPORTED_MODULE_3__global_store_actions__["a" /* CHECK_SESSION */], session: this.sessionService.SessionClear() });
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2_ng2_redux__["select"])(function (s) { return s.global.session; }),
+        __metadata("design:type", Object)
+    ], AppComponent.prototype, "session", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2_ng2_redux__["select"])(function (s) { return s.global.page; }),
+        __metadata("design:type", Object)
+    ], AppComponent.prototype, "page", void 0);
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
@@ -98,13 +106,15 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_service_module__ = __webpack_require__("../../../../../src/app/services/service.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home_module__ = __webpack_require__("../../../../../src/app/pages/home/home.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_class_class_module__ = __webpack_require__("../../../../../src/app/pages/class/class.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__common_component_common_component_module__ = __webpack_require__("../../../../../src/app/common-component/common-component.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__router_config_router_config__ = __webpack_require__("../../../../../src/app/router-config/router.config.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ng2_redux__ = __webpack_require__("../../../../ng2-redux/lib/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ng2_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_ng2_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__store__ = __webpack_require__("../../../../../src/app/store.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_admin_admin_module__ = __webpack_require__("../../../../../src/app/pages/admin/admin.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_dashboard_dashboard_module__ = __webpack_require__("../../../../../src/app/pages/dashboard/dashboard.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_class_class_module__ = __webpack_require__("../../../../../src/app/pages/class/class.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__common_component_common_component_module__ = __webpack_require__("../../../../../src/app/common-component/common-component.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__router_config_router_config__ = __webpack_require__("../../../../../src/app/router-config/router.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_ng2_redux__ = __webpack_require__("../../../../ng2-redux/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_ng2_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_ng2_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__store__ = __webpack_require__("../../../../../src/app/store.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -125,32 +135,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /* Redux */
 
 
 var AppModule = (function () {
     function AppModule(ngRedux, devTools) {
         var enhancers = Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["isDevMode"])() ? [devTools.enhancer()] : [];
-        ngRedux.configureStore(__WEBPACK_IMPORTED_MODULE_10__store__["b" /* rootReducer */], __WEBPACK_IMPORTED_MODULE_10__store__["a" /* INITIAL_STATE */], [], enhancers);
+        ngRedux.configureStore(__WEBPACK_IMPORTED_MODULE_12__store__["b" /* rootReducer */], __WEBPACK_IMPORTED_MODULE_12__store__["a" /* INITIAL_STATE */], [], enhancers);
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]
+                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_9_ng2_redux__["NgReduxModule"],
-                __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__router_config_router_config__["a" /* routerConfig */], { useHash: true }),
+                __WEBPACK_IMPORTED_MODULE_11_ng2_redux__["NgReduxModule"],
+                __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_10__router_config_router_config__["a" /* routerConfig */], { useHash: true }),
                 __WEBPACK_IMPORTED_MODULE_3__services_service_module__["a" /* ServiceModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_4__pages_home_home_module__["a" /* HomeModule */],
-                __WEBPACK_IMPORTED_MODULE_5__pages_class_class_module__["a" /* ClassModule */],
-                __WEBPACK_IMPORTED_MODULE_6__common_component_common_component_module__["a" /* CommonComponentModule */]
+                __WEBPACK_IMPORTED_MODULE_5__pages_admin_admin_module__["a" /* AdminModule */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_dashboard_dashboard_module__["a" /* DashboardModule */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_class_class_module__["a" /* ClassModule */],
+                __WEBPACK_IMPORTED_MODULE_8__common_component_common_component_module__["a" /* CommonComponentModule */]
             ],
             providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_9_ng2_redux__["NgRedux"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9_ng2_redux__["NgRedux"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_9_ng2_redux__["DevToolsExtension"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9_ng2_redux__["DevToolsExtension"]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_11_ng2_redux__["NgRedux"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11_ng2_redux__["NgRedux"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_11_ng2_redux__["DevToolsExtension"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11_ng2_redux__["DevToolsExtension"]) === "function" && _b || Object])
     ], AppModule);
     return AppModule;
     var _a, _b;
@@ -193,7 +207,7 @@ var CommonComponentModule = (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* ReactiveFormsModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* ReactiveFormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* RouterModule */]
             ],
             exports: [
@@ -259,8 +273,8 @@ var LoginComponent = (function () {
         this.formBuilder = formBuilder;
         this.submitloginData = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.loginForm = this.formBuilder.group({
-            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].email]),
-            password: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required),
+            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].email]),
+            password: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required),
             _csrf: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */](this.csrf)
         });
     }
@@ -330,7 +344,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/common-component/nav/nav.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-primary bg-dark\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\">GCOE</a>\n    <button class=\"navbar navbar-dark navbar-toggler \" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar navbar-primary navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\">\n          <a [ngClass]=\"{'nav-link text-light': ((page | async) === 'home'), 'nav-link': true}\" [routerLink]=\"['/home']\">Home <span *ngIf=\"((page | async) === 'home')\" class=\"sr-only\">(current)</span></a>\n        </li>\n        <li *ngIf=\"(session | async)\" class=\"nav-item\">\n          <a [ngClass]=\"{'nav-link text-light': ((page | async) === 'class'), 'nav-link': true}\" [routerLink]=\"['/class']\">Class <span *ngIf=\"((page | async) === 'class')\" class=\"sr-only\">(current)</span> </a>\n        </li>\n        <li *ngIf=\"(session | async)\" class=\"nav-item dropdown\">\n          <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n            Options\n          </a>\n          <div *ngIf=\"(session | async)\" class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">\n            <a class=\"dropdown-item\" href=\"#\">Action</a>\n            <a class=\"dropdown-item\" href=\"#\">Another action</a>\n            <a class=\"dropdown-item\" (click)=\"onLogout()\" href=\"#\">Logout</a>\n          </div>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-primary bg-dark\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\">GCOE</a>\n    <button class=\"navbar navbar-dark navbar-toggler \" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar navbar-primary navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\">\n          <a [ngClass]=\"{'nav-link text-light': ((page | async) === 'home'), 'nav-link': true}\" [routerLink]=\"['/home']\">Home <span *ngIf=\"((page | async) === 'home')\" class=\"sr-only\">(current)</span></a>\n        </li>\n        <li *ngIf=\"((session | async) && (userRestriction | async ) < 5)\" class=\"nav-item\">\n          <a [ngClass]=\"{'nav-link text-light': ((page | async) === 'admin'), 'nav-link': true}\" [routerLink]=\"['/admin']\">Admin <span *ngIf=\"((page | async) === 'admin')\" class=\"sr-only\">(current)</span></a>\n        </li>\n        <li *ngIf=\"((session | async) && (userRestriction | async ) < 5)\" class=\"nav-item\">\n          <a [ngClass]=\"{'nav-link text-light': ((page | async) === 'dashboard'), 'nav-link': true}\" [routerLink]=\"['/dashboard']\">Dashboard <span *ngIf=\"((page | async) === 'dashboard')\" class=\"sr-only\">(current)</span></a>\n        </li>\n        <li *ngIf=\"(session | async)\" class=\"nav-item\">\n          <a [ngClass]=\"{'nav-link text-light': ((page | async) === 'class'), 'nav-link': true}\" [routerLink]=\"['/class']\">Class <span *ngIf=\"((page | async) === 'class')\" class=\"sr-only\">(current)</span> </a>\n        </li>\n        <li *ngIf=\"(session | async)\" class=\"nav-item dropdown\">\n          <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n            Options\n          </a>\n          <div *ngIf=\"(session | async)\" class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">\n            <a class=\"dropdown-item\" href=\"#\">Action</a>\n            <a class=\"dropdown-item\" href=\"#\">Another action</a>\n            <a class=\"dropdown-item\" (click)=\"onLogout()\" href=\"#\">Logout</a>\n          </div>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -366,6 +380,10 @@ var NavComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1_ng2_redux__["select"])(function (s) { return s.global.session; }),
         __metadata("design:type", Object)
     ], NavComponent.prototype, "session", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1_ng2_redux__["select"])(function (s) { return s.global.session.User.userRestriction; }),
+        __metadata("design:type", Object)
+    ], NavComponent.prototype, "userRestriction", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1_ng2_redux__["select"])(function (s) { return s.global.page; }),
         __metadata("design:type", Object)
@@ -438,23 +456,23 @@ var SignupComponent = (function () {
         this.cancel = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.signupData = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.signupForm = this.formBuilder.group({
-            firstname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required),
-            lastname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required),
-            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].email]),
-            password: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required),
-            confirmation: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required),
-            invitationCode: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required),
+            firstname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required),
+            lastname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required),
+            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].email]),
+            password: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required),
+            confirmation: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required),
+            invitationCode: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required),
             _csrf: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */](this._csrf)
         });
     }
     SignupComponent.prototype.ngOnInit = function () {
         this.signupForm = this.formBuilder.group({
-            firstname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required),
-            lastname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required),
-            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].email]),
-            password: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required),
-            confirmation: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required),
-            invitationCode: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required),
+            firstname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required),
+            lastname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required),
+            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].email]),
+            password: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required),
+            confirmation: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required),
+            invitationCode: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required),
             _csrf: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */](this._csrf)
         });
     };
@@ -600,6 +618,113 @@ function globalReducer(state, action) {
 
 /***/ }),
 
+/***/ "../../../../../src/app/pages/admin/admin.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/admin/admin.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  admin works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/admin/admin.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_redux__ = __webpack_require__("../../../../ng2-redux/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__global_store_actions__ = __webpack_require__("../../../../../src/app/global-store/actions.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AdminComponent = (function () {
+    function AdminComponent(ngRedux, route) {
+        this.ngRedux = ngRedux;
+        this.route = route;
+    }
+    AdminComponent.prototype.ngOnInit = function () {
+        this.ngRedux.dispatch({ type: __WEBPACK_IMPORTED_MODULE_3__global_store_actions__["e" /* SET_ACTIVE_PAGE */], page: this.route.snapshot.url.toString() });
+    };
+    AdminComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-admin',
+            template: __webpack_require__("../../../../../src/app/pages/admin/admin.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/pages/admin/admin.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_redux__["NgRedux"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_redux__["NgRedux"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object])
+    ], AdminComponent);
+    return AdminComponent;
+    var _a, _b;
+}());
+
+//# sourceMappingURL=admin.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/admin/admin.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_component__ = __webpack_require__("../../../../../src/app/pages/admin/admin.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var AdminModule = (function () {
+    function AdminModule() {
+    }
+    AdminModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]
+            ],
+            declarations: [__WEBPACK_IMPORTED_MODULE_2__admin_component__["a" /* AdminComponent */]]
+        })
+    ], AdminModule);
+    return AdminModule;
+}());
+
+//# sourceMappingURL=admin.module.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/pages/class/class.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -707,6 +832,113 @@ var ClassModule = (function () {
 }());
 
 //# sourceMappingURL=class.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/dashboard/dashboard.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/dashboard/dashboard.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  dashboard works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/dashboard/dashboard.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_redux__ = __webpack_require__("../../../../ng2-redux/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__global_store_actions__ = __webpack_require__("../../../../../src/app/global-store/actions.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var DashboardComponent = (function () {
+    function DashboardComponent(ngRedux, route) {
+        this.ngRedux = ngRedux;
+        this.route = route;
+    }
+    DashboardComponent.prototype.ngOnInit = function () {
+        this.ngRedux.dispatch({ type: __WEBPACK_IMPORTED_MODULE_3__global_store_actions__["e" /* SET_ACTIVE_PAGE */], page: this.route.snapshot.url.toString() });
+    };
+    DashboardComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-dashboard',
+            template: __webpack_require__("../../../../../src/app/pages/dashboard/dashboard.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/pages/dashboard/dashboard.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_redux__["NgRedux"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_redux__["NgRedux"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object])
+    ], DashboardComponent);
+    return DashboardComponent;
+    var _a, _b;
+}());
+
+//# sourceMappingURL=dashboard.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/dashboard/dashboard.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dashboard_component__ = __webpack_require__("../../../../../src/app/pages/dashboard/dashboard.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var DashboardModule = (function () {
+    function DashboardModule() {
+    }
+    DashboardModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]
+            ],
+            declarations: [__WEBPACK_IMPORTED_MODULE_2__dashboard_component__["a" /* DashboardComponent */]]
+        })
+    ], DashboardModule);
+    return DashboardModule;
+}());
+
+//# sourceMappingURL=dashboard.module.js.map
 
 /***/ }),
 
@@ -944,12 +1176,18 @@ function homePageReducer(state, action) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routerConfig; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_home_home_component__ = __webpack_require__("../../../../../src/app/pages/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_class_class_component__ = __webpack_require__("../../../../../src/app/pages/class/class.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_admin_admin_component__ = __webpack_require__("../../../../../src/app/pages/admin/admin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/pages/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_class_class_component__ = __webpack_require__("../../../../../src/app/pages/class/class.component.ts");
+
+
 
 
 var routerConfig = [
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_0__pages_home_home_component__["a" /* HomeComponent */] },
-    { path: 'class', component: __WEBPACK_IMPORTED_MODULE_1__pages_class_class_component__["a" /* ClassComponent */] },
+    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_1__pages_admin_admin_component__["a" /* AdminComponent */] },
+    { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_2__pages_dashboard_dashboard_component__["a" /* DashboardComponent */] },
+    { path: 'class', component: __WEBPACK_IMPORTED_MODULE_3__pages_class_class_component__["a" /* ClassComponent */] },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
@@ -999,6 +1237,64 @@ var AuthenticationService = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/services/dialog.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export DialogComponent */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DialogService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DialogComponent = (function () {
+    function DialogComponent(modalService, activeModal) {
+        this.modalService = modalService;
+        this.activeModal = activeModal;
+    }
+    DialogComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-dialog',
+            template: "\n    <div class=\"modal-header\">\n      <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{title}}</h5>\n      <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"activeModal.close()\">\n              <span aria-hidden=\"true\">&times;</span>\n            </button>\n    </div>\n    <div class=\"modal-body\">\n      {{message}}\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\" (click)=\"activeModal.close()\">Ok</button>\n    </div>\n  "
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["a" /* NgbActiveModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["a" /* NgbActiveModal */]) === "function" && _b || Object])
+    ], DialogComponent);
+    return DialogComponent;
+    var _a, _b;
+}());
+
+var DialogService = (function () {
+    function DialogService(modalService) {
+        this.modalService = modalService;
+    }
+    DialogService.prototype.show = function (title, message) {
+        var modalRef = this.modalService.open(DialogComponent);
+        modalRef.componentInstance.title = title;
+        modalRef.componentInstance.message = message;
+        return modalRef.result;
+    };
+    DialogService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _a || Object])
+    ], DialogService);
+    return DialogService;
+    var _a;
+}());
+
+//# sourceMappingURL=dialog.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/services/service.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1010,12 +1306,14 @@ var AuthenticationService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__authentication_service__ = __webpack_require__("../../../../../src/app/services/authentication.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__session_service__ = __webpack_require__("../../../../../src/app/services/session.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__dialog_service__ = __webpack_require__("../../../../../src/app/services/dialog.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1032,7 +1330,8 @@ var ServiceModule = (function () {
             providers: [
                 __WEBPACK_IMPORTED_MODULE_3__user_service__["a" /* UserService */],
                 __WEBPACK_IMPORTED_MODULE_4__authentication_service__["a" /* AuthenticationService */],
-                __WEBPACK_IMPORTED_MODULE_5__session_service__["a" /* SessionService */]
+                __WEBPACK_IMPORTED_MODULE_5__session_service__["a" /* SessionService */],
+                __WEBPACK_IMPORTED_MODULE_6__dialog_service__["a" /* DialogService */]
             ]
         };
     };

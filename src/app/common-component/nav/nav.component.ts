@@ -13,6 +13,7 @@ import { IAppState } from '../../store';
 export class NavComponent implements OnInit {
 
   @select(s => s.global.session) session;
+  @select( s => s.global.session.User.userRestriction) userRestriction;
   @select(s => s.global.page ) page;
   @Output() logout = new EventEmitter<void>();
 

@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { UserService } from './user.service';
 import { AuthenticationService } from './authentication.service';
 import { SessionService } from './session.service';
+import { DialogService } from './dialog.service';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ export class ServiceModule {
         providers: [ 
           UserService,
           AuthenticationService,
-          SessionService
+          SessionService,
+          DialogService
         ]
     }
 }

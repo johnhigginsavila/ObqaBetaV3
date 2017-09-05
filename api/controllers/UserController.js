@@ -15,16 +15,14 @@ module.exports = {
         })
     },
 	create:(req, res, next) => {
-        /* User.create(req.body)
+        User.create(req.body)
         .then((user) => {
             console.log(user);
             res.send(200, user);
         }).catch((err) => {
             console.log(err);
             res.send(500, err);
-        }) */
-        console.log(req.body);
-        res.send(200, req.body);
+        })
     }
 };
 

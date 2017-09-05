@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { ServiceModule } from './services/service.module';
 /* Pages Modules */
 import { HomeModule } from './pages/home/home.module';
+import { AdminModule } from './pages/admin/admin.module';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { ClassModule } from './pages/class/class.module';
 
 import { CommonComponentModule } from './common-component/common-component.module';
@@ -31,6 +33,8 @@ import { IAppState, rootReducer, INITIAL_STATE } from './store';
     RouterModule.forRoot(routerConfig, {useHash: true}),
     ServiceModule.forRoot(),
     HomeModule,
+    AdminModule,
+    DashboardModule,
     ClassModule,
     CommonComponentModule
   ],
