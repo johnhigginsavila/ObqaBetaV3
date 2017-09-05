@@ -7,10 +7,13 @@ import { AuthenticationService } from './authentication.service';
 import { SessionService } from './session.service';
 import { DialogService } from './dialog.service';
 
+import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   imports: [
     CommonModule,
-    HttpModule
+    HttpModule,
+    NgbModalModule
   ],
   declarations: []
 })

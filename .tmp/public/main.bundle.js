@@ -104,17 +104,21 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_service_module__ = __webpack_require__("../../../../../src/app/services/service.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home_module__ = __webpack_require__("../../../../../src/app/pages/home/home.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_admin_admin_module__ = __webpack_require__("../../../../../src/app/pages/admin/admin.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_dashboard_dashboard_module__ = __webpack_require__("../../../../../src/app/pages/dashboard/dashboard.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_class_class_module__ = __webpack_require__("../../../../../src/app/pages/class/class.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__common_component_common_component_module__ = __webpack_require__("../../../../../src/app/common-component/common-component.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__router_config_router_config__ = __webpack_require__("../../../../../src/app/router-config/router.config.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_ng2_redux__ = __webpack_require__("../../../../ng2-redux/lib/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_ng2_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_ng2_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__store__ = __webpack_require__("../../../../../src/app/store.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_service_module__ = __webpack_require__("../../../../../src/app/services/service.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home_module__ = __webpack_require__("../../../../../src/app/pages/home/home.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_admin_admin_module__ = __webpack_require__("../../../../../src/app/pages/admin/admin.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_dashboard_dashboard_module__ = __webpack_require__("../../../../../src/app/pages/dashboard/dashboard.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_class_class_module__ = __webpack_require__("../../../../../src/app/pages/class/class.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__guards_login_guard__ = __webpack_require__("../../../../../src/app/guards/login.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__common_component_common_component_module__ = __webpack_require__("../../../../../src/app/common-component/common-component.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__router_config_router_config__ = __webpack_require__("../../../../../src/app/router-config/router.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ng2_redux__ = __webpack_require__("../../../../ng2-redux/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ng2_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_ng2_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__store__ = __webpack_require__("../../../../../src/app/store.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_dialog_service__ = __webpack_require__("../../../../../src/app/services/dialog.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -127,11 +131,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /* Service Module */
 
 /* Pages Modules */
 
 
+
+
+/* Guards */
 
 
 
@@ -140,31 +148,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /* Redux */
 
 
+
 var AppModule = (function () {
     function AppModule(ngRedux, devTools) {
         var enhancers = Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["isDevMode"])() ? [devTools.enhancer()] : [];
-        ngRedux.configureStore(__WEBPACK_IMPORTED_MODULE_12__store__["b" /* rootReducer */], __WEBPACK_IMPORTED_MODULE_12__store__["a" /* INITIAL_STATE */], [], enhancers);
+        ngRedux.configureStore(__WEBPACK_IMPORTED_MODULE_15__store__["b" /* rootReducer */], __WEBPACK_IMPORTED_MODULE_15__store__["a" /* INITIAL_STATE */], [], enhancers);
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]
+                __WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__services_dialog_service__["a" /* DialogComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_11_ng2_redux__["NgReduxModule"],
-                __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_10__router_config_router_config__["a" /* routerConfig */], { useHash: true }),
-                __WEBPACK_IMPORTED_MODULE_3__services_service_module__["a" /* ServiceModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_4__pages_home_home_module__["a" /* HomeModule */],
-                __WEBPACK_IMPORTED_MODULE_5__pages_admin_admin_module__["a" /* AdminModule */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_dashboard_dashboard_module__["a" /* DashboardModule */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_class_class_module__["a" /* ClassModule */],
-                __WEBPACK_IMPORTED_MODULE_8__common_component_common_component_module__["a" /* CommonComponentModule */]
+                __WEBPACK_IMPORTED_MODULE_14_ng2_redux__["NgReduxModule"],
+                __WEBPACK_IMPORTED_MODULE_3__ng_bootstrap_ng_bootstrap__["d" /* NgbModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_13__router_config_router_config__["a" /* routerConfig */], { useHash: true }),
+                __WEBPACK_IMPORTED_MODULE_4__services_service_module__["a" /* ServiceModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_5__pages_home_home_module__["a" /* HomeModule */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_admin_admin_module__["a" /* AdminModule */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_dashboard_dashboard_module__["a" /* DashboardModule */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_class_class_module__["a" /* ClassModule */],
+                __WEBPACK_IMPORTED_MODULE_11__common_component_common_component_module__["a" /* CommonComponentModule */]
             ],
-            providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_9__guards_auth_guard__["a" /* AuthGuard */],
+                __WEBPACK_IMPORTED_MODULE_10__guards_login_guard__["a" /* LoginGuard */]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* AppComponent */]],
+            entryComponents: [__WEBPACK_IMPORTED_MODULE_16__services_dialog_service__["a" /* DialogComponent */]]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_11_ng2_redux__["NgRedux"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11_ng2_redux__["NgRedux"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_11_ng2_redux__["DevToolsExtension"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11_ng2_redux__["DevToolsExtension"]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_14_ng2_redux__["NgRedux"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_14_ng2_redux__["NgRedux"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_14_ng2_redux__["DevToolsExtension"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_14_ng2_redux__["DevToolsExtension"]) === "function" && _b || Object])
     ], AppModule);
     return AppModule;
     var _a, _b;
@@ -615,6 +630,94 @@ function globalReducer(state, action) {
     return state;
 }
 //# sourceMappingURL=store.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/guards/auth.guard.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_dialog_service__ = __webpack_require__("../../../../../src/app/services/dialog.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AuthGuard = (function () {
+    function AuthGuard(dialogService) {
+        this.dialogService = dialogService;
+    }
+    AuthGuard.prototype.canActivate = function () {
+        this.session = JSON.parse(sessionStorage.getItem('session'));
+        if (this.session) {
+            if ((this.session.User.userRestriction > 4)) {
+                this.dialogService.show('Authentication-Guard Message', 'You are not allowed for this content.');
+            }
+            else {
+                return true;
+            }
+        }
+    };
+    AuthGuard = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_dialog_service__["b" /* DialogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_dialog_service__["b" /* DialogService */]) === "function" && _a || Object])
+    ], AuthGuard);
+    return AuthGuard;
+    var _a;
+}());
+
+//# sourceMappingURL=auth.guard.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/guards/login.guard.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_dialog_service__ = __webpack_require__("../../../../../src/app/services/dialog.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LoginGuard = (function () {
+    function LoginGuard(dialogService) {
+        this.dialogService = dialogService;
+    }
+    LoginGuard.prototype.canActivate = function () {
+        this.session = JSON.parse(sessionStorage.getItem('session'));
+        if (!this.session) {
+            this.dialogService.show('Login-Guard Message', 'Please login to continue.');
+        }
+        else {
+            return true;
+        }
+    };
+    LoginGuard = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_dialog_service__["b" /* DialogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_dialog_service__["b" /* DialogService */]) === "function" && _a || Object])
+    ], LoginGuard);
+    return LoginGuard;
+    var _a;
+}());
+
+//# sourceMappingURL=login.guard.js.map
 
 /***/ }),
 
@@ -1179,15 +1282,19 @@ function homePageReducer(state, action) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_admin_admin_component__ = __webpack_require__("../../../../../src/app/pages/admin/admin.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/pages/dashboard/dashboard.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_class_class_component__ = __webpack_require__("../../../../../src/app/pages/class/class.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__guards_login_guard__ = __webpack_require__("../../../../../src/app/guards/login.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
+
+
 
 
 
 
 var routerConfig = [
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_0__pages_home_home_component__["a" /* HomeComponent */] },
-    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_1__pages_admin_admin_component__["a" /* AdminComponent */] },
-    { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_2__pages_dashboard_dashboard_component__["a" /* DashboardComponent */] },
-    { path: 'class', component: __WEBPACK_IMPORTED_MODULE_3__pages_class_class_component__["a" /* ClassComponent */] },
+    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_1__pages_admin_admin_component__["a" /* AdminComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__guards_login_guard__["a" /* LoginGuard */], __WEBPACK_IMPORTED_MODULE_5__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_2__pages_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__guards_login_guard__["a" /* LoginGuard */], __WEBPACK_IMPORTED_MODULE_5__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'class', component: __WEBPACK_IMPORTED_MODULE_3__pages_class_class_component__["a" /* ClassComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__guards_login_guard__["a" /* LoginGuard */]] },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
@@ -1241,8 +1348,8 @@ var AuthenticationService = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export DialogComponent */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DialogService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DialogComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return DialogService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1307,12 +1414,14 @@ var DialogService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__authentication_service__ = __webpack_require__("../../../../../src/app/services/authentication.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__session_service__ = __webpack_require__("../../../../../src/app/services/session.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__dialog_service__ = __webpack_require__("../../../../../src/app/services/dialog.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1331,7 +1440,7 @@ var ServiceModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_3__user_service__["a" /* UserService */],
                 __WEBPACK_IMPORTED_MODULE_4__authentication_service__["a" /* AuthenticationService */],
                 __WEBPACK_IMPORTED_MODULE_5__session_service__["a" /* SessionService */],
-                __WEBPACK_IMPORTED_MODULE_6__dialog_service__["a" /* DialogService */]
+                __WEBPACK_IMPORTED_MODULE_6__dialog_service__["b" /* DialogService */]
             ]
         };
     };
@@ -1339,7 +1448,8 @@ var ServiceModule = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* HttpModule */]
+                __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_7__ng_bootstrap_ng_bootstrap__["c" /* NgbModalModule */]
             ],
             declarations: []
         })
